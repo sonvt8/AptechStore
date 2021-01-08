@@ -5885,16 +5885,14 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CSharp\\AptechStore\\AptechStore.DataAccess\\AptechStore.DataAccess.csproj",
+      "projectUniqueName": "D:\\lap trinh\\CSharp\\AptechStore\\AptechStore.DataAccess\\AptechStore.DataAccess.csproj",
       "projectName": "AptechStore.DataAccess",
-      "projectPath": "D:\\CSharp\\AptechStore\\AptechStore.DataAccess\\AptechStore.DataAccess.csproj",
+      "projectPath": "D:\\lap trinh\\CSharp\\AptechStore\\AptechStore.DataAccess\\AptechStore.DataAccess.csproj",
       "packagesPath": "C:\\Users\\Tin\\.nuget\\packages\\",
-      "outputPath": "D:\\CSharp\\AptechStore\\AptechStore.DataAccess\\obj\\",
+      "outputPath": "D:\\lap trinh\\CSharp\\AptechStore\\AptechStore.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Tin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.2.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5908,11 +5906,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\CSharp\\AptechStore\\AptechStore.Models\\AptechStore.Models.csproj": {
-              "projectPath": "D:\\CSharp\\AptechStore\\AptechStore.Models\\AptechStore.Models.csproj"
+            "D:\\lap trinh\\CSharp\\AptechStore\\AptechStore.Models\\AptechStore.Models.csproj": {
+              "projectPath": "D:\\lap trinh\\CSharp\\AptechStore\\AptechStore.Models\\AptechStore.Models.csproj"
             },
-            "D:\\CSharp\\AptechStore\\AptechStore.Utility\\AptechStore.Utility.csproj": {
-              "projectPath": "D:\\CSharp\\AptechStore\\AptechStore.Utility\\AptechStore.Utility.csproj"
+            "D:\\lap trinh\\CSharp\\AptechStore\\AptechStore.Utility\\AptechStore.Utility.csproj": {
+              "projectPath": "D:\\lap trinh\\CSharp\\AptechStore\\AptechStore.Utility\\AptechStore.Utility.csproj"
             }
           }
         }
@@ -5963,7 +5961,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

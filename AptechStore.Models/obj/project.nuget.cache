@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "itt1hizw7u2XEhU11/dMdDKxnRHTcqZiVept2ba8BSEko2bnahUognQbaOED/AVco/SQGbi4BPxiwasfJDOsvg==",
+  "dgSpecHash": "Ws/6h2560PMv6udLajRYNpJG4DrLnkL1cLK7eh9ei4rCjcH6nh7W0ZJXSNKMgbYW0JjU0GCVcyiybjaoBPD/GQ==",
   "success": true,
-  "projectFilePath": "D:\\CSharp\\AptechStore\\AptechStore.Models\\AptechStore.Models.csproj",
+  "projectFilePath": "D:\\lap trinh\\CSharp\\AptechStore\\AptechStore.Models\\AptechStore.Models.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Tin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.10\\microsoft.aspnetcore.cryptography.internal.3.1.10.nupkg.sha512",
     "C:\\Users\\Tin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.10\\microsoft.aspnetcore.cryptography.keyderivation.3.1.10.nupkg.sha512",

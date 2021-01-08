@@ -669,16 +669,14 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CSharp\\AptechStore\\AptechStore.Utility\\AptechStore.Utility.csproj",
+      "projectUniqueName": "D:\\lap trinh\\CSharp\\AptechStore\\AptechStore.Utility\\AptechStore.Utility.csproj",
       "projectName": "AptechStore.Utility",
-      "projectPath": "D:\\CSharp\\AptechStore\\AptechStore.Utility\\AptechStore.Utility.csproj",
+      "projectPath": "D:\\lap trinh\\CSharp\\AptechStore\\AptechStore.Utility\\AptechStore.Utility.csproj",
       "packagesPath": "C:\\Users\\Tin\\.nuget\\packages\\",
-      "outputPath": "D:\\CSharp\\AptechStore\\AptechStore.Utility\\obj\\",
+      "outputPath": "D:\\lap trinh\\CSharp\\AptechStore\\AptechStore.Utility\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Tin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.2.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -728,7 +726,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
