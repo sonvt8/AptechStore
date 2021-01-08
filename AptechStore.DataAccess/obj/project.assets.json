@@ -1541,7 +1541,8 @@
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "3.1.10",
-          "Microsoft.EntityFrameworkCore.Relational": "3.1.10"
+          "Microsoft.EntityFrameworkCore.Relational": "3.1.10",
+          "Microsoft.Extensions.Identity.Stores": "3.1.10"
         },
         "compile": {
           "bin/placeholder/AptechStore.Models.dll": {}
@@ -5879,19 +5880,21 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Tommy\\.nuget\\packages\\": {}
+    "C:\\Users\\Tin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Disk F\\Disk F\\Dev\\Aptech\\C#\\Project Webform\\AptechStore\\AptechStore.DataAccess\\AptechStore.DataAccess.csproj",
+      "projectUniqueName": "D:\\CSharp\\AptechStore\\AptechStore.DataAccess\\AptechStore.DataAccess.csproj",
       "projectName": "AptechStore.DataAccess",
-      "projectPath": "D:\\Disk F\\Disk F\\Dev\\Aptech\\C#\\Project Webform\\AptechStore\\AptechStore.DataAccess\\AptechStore.DataAccess.csproj",
-      "packagesPath": "C:\\Users\\Tommy\\.nuget\\packages\\",
-      "outputPath": "D:\\Disk F\\Disk F\\Dev\\Aptech\\C#\\Project Webform\\AptechStore\\AptechStore.DataAccess\\obj\\",
+      "projectPath": "D:\\CSharp\\AptechStore\\AptechStore.DataAccess\\AptechStore.DataAccess.csproj",
+      "packagesPath": "C:\\Users\\Tin\\.nuget\\packages\\",
+      "outputPath": "D:\\CSharp\\AptechStore\\AptechStore.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Tommy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Tin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.2.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5905,11 +5908,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\Disk F\\Disk F\\Dev\\Aptech\\C#\\Project Webform\\AptechStore\\AptechStore.Models\\AptechStore.Models.csproj": {
-              "projectPath": "D:\\Disk F\\Disk F\\Dev\\Aptech\\C#\\Project Webform\\AptechStore\\AptechStore.Models\\AptechStore.Models.csproj"
+            "D:\\CSharp\\AptechStore\\AptechStore.Models\\AptechStore.Models.csproj": {
+              "projectPath": "D:\\CSharp\\AptechStore\\AptechStore.Models\\AptechStore.Models.csproj"
             },
-            "D:\\Disk F\\Disk F\\Dev\\Aptech\\C#\\Project Webform\\AptechStore\\AptechStore.Utility\\AptechStore.Utility.csproj": {
-              "projectPath": "D:\\Disk F\\Disk F\\Dev\\Aptech\\C#\\Project Webform\\AptechStore\\AptechStore.Utility\\AptechStore.Utility.csproj"
+            "D:\\CSharp\\AptechStore\\AptechStore.Utility\\AptechStore.Utility.csproj": {
+              "projectPath": "D:\\CSharp\\AptechStore\\AptechStore.Utility\\AptechStore.Utility.csproj"
             }
           }
         }
@@ -5960,7 +5963,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

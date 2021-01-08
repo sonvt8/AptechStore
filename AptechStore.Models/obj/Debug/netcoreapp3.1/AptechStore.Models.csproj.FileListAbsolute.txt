@@ -6,3 +6,12 @@ D:\Disk F\Disk F\Dev\Aptech\C#\Project Webform\AptechStore\AptechStore.Models\ob
 D:\Disk F\Disk F\Dev\Aptech\C#\Project Webform\AptechStore\AptechStore.Models\obj\Debug\netcoreapp3.1\AptechStore.Models.csproj.CoreCompileInputs.cache
 D:\Disk F\Disk F\Dev\Aptech\C#\Project Webform\AptechStore\AptechStore.Models\obj\Debug\netcoreapp3.1\AptechStore.Models.dll
 D:\Disk F\Disk F\Dev\Aptech\C#\Project Webform\AptechStore\AptechStore.Models\obj\Debug\netcoreapp3.1\AptechStore.Models.pdb
+D:\CSharp\AptechStore\AptechStore.Models\bin\Debug\netcoreapp3.1\AptechStore.Models.deps.json
+D:\CSharp\AptechStore\AptechStore.Models\bin\Debug\netcoreapp3.1\AptechStore.Models.dll
+D:\CSharp\AptechStore\AptechStore.Models\bin\Debug\netcoreapp3.1\AptechStore.Models.pdb
+D:\CSharp\AptechStore\AptechStore.Models\obj\Debug\netcoreapp3.1\AptechStore.Models.csprojAssemblyReference.cache
+D:\CSharp\AptechStore\AptechStore.Models\obj\Debug\netcoreapp3.1\AptechStore.Models.AssemblyInfoInputs.cache
+D:\CSharp\AptechStore\AptechStore.Models\obj\Debug\netcoreapp3.1\AptechStore.Models.AssemblyInfo.cs
+D:\CSharp\AptechStore\AptechStore.Models\obj\Debug\netcoreapp3.1\AptechStore.Models.csproj.CoreCompileInputs.cache
+D:\CSharp\AptechStore\AptechStore.Models\obj\Debug\netcoreapp3.1\AptechStore.Models.dll
+D:\CSharp\AptechStore\AptechStore.Models\obj\Debug\netcoreapp3.1\AptechStore.Models.pdb

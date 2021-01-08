@@ -12,3 +12,17 @@ D:\Disk F\Disk F\Dev\Aptech\C#\Project Webform\AptechStore\AptechStore.DataAcces
 D:\Disk F\Disk F\Dev\Aptech\C#\Project Webform\AptechStore\AptechStore.DataAccess\obj\Debug\netcoreapp3.1\AptechStore.DataAccess.csproj.CopyComplete
 D:\Disk F\Disk F\Dev\Aptech\C#\Project Webform\AptechStore\AptechStore.DataAccess\obj\Debug\netcoreapp3.1\AptechStore.DataAccess.dll
 D:\Disk F\Disk F\Dev\Aptech\C#\Project Webform\AptechStore\AptechStore.DataAccess\obj\Debug\netcoreapp3.1\AptechStore.DataAccess.pdb
+D:\CSharp\AptechStore\AptechStore.DataAccess\bin\Debug\netcoreapp3.1\AptechStore.DataAccess.deps.json
+D:\CSharp\AptechStore\AptechStore.DataAccess\bin\Debug\netcoreapp3.1\AptechStore.DataAccess.dll
+D:\CSharp\AptechStore\AptechStore.DataAccess\bin\Debug\netcoreapp3.1\AptechStore.DataAccess.pdb
+D:\CSharp\AptechStore\AptechStore.DataAccess\bin\Debug\netcoreapp3.1\AptechStore.Models.dll
+D:\CSharp\AptechStore\AptechStore.DataAccess\bin\Debug\netcoreapp3.1\AptechStore.Utility.dll
+D:\CSharp\AptechStore\AptechStore.DataAccess\bin\Debug\netcoreapp3.1\AptechStore.Models.pdb
+D:\CSharp\AptechStore\AptechStore.DataAccess\bin\Debug\netcoreapp3.1\AptechStore.Utility.pdb
+D:\CSharp\AptechStore\AptechStore.DataAccess\obj\Debug\netcoreapp3.1\AptechStore.DataAccess.csprojAssemblyReference.cache
+D:\CSharp\AptechStore\AptechStore.DataAccess\obj\Debug\netcoreapp3.1\AptechStore.DataAccess.AssemblyInfoInputs.cache
+D:\CSharp\AptechStore\AptechStore.DataAccess\obj\Debug\netcoreapp3.1\AptechStore.DataAccess.AssemblyInfo.cs
+D:\CSharp\AptechStore\AptechStore.DataAccess\obj\Debug\netcoreapp3.1\AptechStore.DataAccess.csproj.CoreCompileInputs.cache
+D:\CSharp\AptechStore\AptechStore.DataAccess\obj\Debug\netcoreapp3.1\AptechStore.DataAccess.csproj.CopyComplete
+D:\CSharp\AptechStore\AptechStore.DataAccess\obj\Debug\netcoreapp3.1\AptechStore.DataAccess.dll
+D:\CSharp\AptechStore\AptechStore.DataAccess\obj\Debug\netcoreapp3.1\AptechStore.DataAccess.pdb
