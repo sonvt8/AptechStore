@@ -4,12 +4,24 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - AptechStore</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/toastr.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/fonts/fonts.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/icons/icomoon/styles.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/icons/fontawesome/fontawesome-all.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/colors.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/DateTimePicker.css" />
+
+    @* CDN *@
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AptechStore</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -20,10 +32,10 @@
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
                 </div>
@@ -36,14 +48,37 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-white-50 bg-primary">
         <div class="container">
-            &copy; 2021 - AptechStore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2021 - AptechStore
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @* Datatable resoures *@
+    <script src="~/lib/bootstrap/dist/js/plugins/tables/datatables/datatables.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/plugins/tables/datatables/extensions/buttons.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/plugins/tables/datatables/extensions/jszip/jszip.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/plugins/tables/datatables/extensions/select.min.js"></script>
+
+    @* Theme JS files *@
+    <script src="~/lib/bootstrap/dist/js/plugins/forms/selects/select2.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/plugins/notifications/sweet_alert.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/plugins/notifications/pnotify.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/plugins/notifications/toastr.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/plugins/forms/styling/uniform.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/plugins/ui/nicescroll.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/DateTimePicker.js"></script>
+    <script src="~/lib/bootstrap/dist/js/jquery.validate.js"></script>
+
+    @* CDN *@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>
