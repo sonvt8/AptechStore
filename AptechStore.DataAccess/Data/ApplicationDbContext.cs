@@ -1,22 +1,4 @@
-<<<<<<< HEAD
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AptechStore.DataAccess.Data
-{
-    public class ApplicationDbContext : IdentityDbContext
-    {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
-        {
-        }
-    }
-}
-=======
-﻿using AptechStore.Models;
+using AptechStore.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -42,4 +24,3 @@ namespace AptechStore.DataAccess.Data
         public DbSet<OrderDetails> OrderDetails { get; set; }
     }
 }
->>>>>>> Tin
