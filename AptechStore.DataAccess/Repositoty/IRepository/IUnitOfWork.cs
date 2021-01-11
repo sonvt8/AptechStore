@@ -9,6 +9,7 @@ namespace AptechStore.DataAccess.Repositoty.IRepository
         ISP_Call SP_Call { get; }
         ICategoryRepository Category { get; }
         IProductRepository Product { get; }
+        IOrderDetailsRepository OrderDetails { get; }
         void Save();
     }
 }
