@@ -341,10 +341,11 @@ healthchecksdb
 
 # Images
 # **/wwwroot/images
-AptechStore/appsettings.json
 
 AptechStore.Utility/
 
 AptechStore/bin/
 
 AptechStore/obj/
+
+AptechStore/appsettings.json
