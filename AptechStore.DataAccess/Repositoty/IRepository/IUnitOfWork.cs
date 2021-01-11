@@ -11,6 +11,7 @@ namespace AptechStore.DataAccess.Repositoty.IRepository
         IProductRepository Product { get; }
         IOrderDetailsRepository OrderDetails { get; }
         IOrderHeaderRepository OrderHeader { get; }
+        IShoppingCartRepository ShoppingCart { get; }
         void Save();
     }
 }
