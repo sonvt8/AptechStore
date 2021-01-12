@@ -107,5 +107,12 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     @RenderSection("Scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            $("#postTitle").autocomplete({
+                source: 'api/postapi/search'
+            });
+        });
+    </script>
 </body>
 </html>
