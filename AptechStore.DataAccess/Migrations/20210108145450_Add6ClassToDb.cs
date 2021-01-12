@@ -83,7 +83,7 @@ namespace AptechStore.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Produtcs",
+                name: "Products",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -98,9 +98,9 @@ namespace AptechStore.DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Produtcs", x => x.Id);
+                    table.PrimaryKey("PK_Products", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Produtcs_Categories_CategoryId",
+                        name: "FK_Products_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "Id",
@@ -128,9 +128,9 @@ namespace AptechStore.DataAccess.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_OrderDetails_Produtcs_ProductId",
+                        name: "FK_OrderDetails_Products_ProductId",
                         column: x => x.ProductId,
-                        principalTable: "Produtcs",
+                        principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -155,9 +155,9 @@ namespace AptechStore.DataAccess.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_ShoppingCarts_Produtcs_ProductId",
+                        name: "FK_ShoppingCarts_Products_ProductId",
                         column: x => x.ProductId,
-                        principalTable: "Produtcs",
+                        principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -178,8 +178,8 @@ namespace AptechStore.DataAccess.Migrations
                 column: "ApplicationUserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Produtcs_CategoryId",
-                table: "Produtcs",
+                name: "IX_Products_CategoryId",
+                table: "Products",
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
@@ -205,7 +205,7 @@ namespace AptechStore.DataAccess.Migrations
                 name: "OrderHeaders");
 
             migrationBuilder.DropTable(
-                name: "Produtcs");
+                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "Categories");

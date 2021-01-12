@@ -159,7 +159,7 @@ namespace AptechStore.DataAccess.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Produtcs");
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("AptechStore.Models.ShoppingCart", b =>
