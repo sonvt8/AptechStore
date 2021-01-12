@@ -19,7 +19,7 @@ namespace AptechStore.DataAccess.Repositoty
 
         public void Update(Product product)
         {
-            var objFromDb = _db.Produtcs.FirstOrDefault(s => s.Id == product.Id);
+            var objFromDb = _db.Products.FirstOrDefault(s => s.Id == product.Id);
 
             if (objFromDb != null)
             {
