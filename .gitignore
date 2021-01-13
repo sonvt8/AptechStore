@@ -347,3 +347,4 @@ AptechStore/bin/
 AptechStore/obj/
 
 AptechStore/appsettings.json
+AptechStore/appsettings.Development.json
