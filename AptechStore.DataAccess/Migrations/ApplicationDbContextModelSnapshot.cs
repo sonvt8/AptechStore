@@ -34,6 +34,28 @@ namespace AptechStore.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Film"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Fiction"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Nature"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Memoir"
+                        });
                 });
 
             modelBuilder.Entity("AptechStore.Models.OrderDetails", b =>
@@ -158,6 +180,41 @@ namespace AptechStore.DataAccess.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Author = "JENNY HVAL",
+                            CategoryId = 1,
+                            Description = "Welcome to 1990s Norway. White picket fences run in neat rows and Christian conservatism runs deep. But as the Artist considers her work, things start stirring themselves up. In a corner of Oslo a coven of witches begin cooking up some curses. A time-travelling Edvard Munch arrives in town to join a death metal band, closely pursued by the teenaged subject of his painting Puberty, who has murder on her mind. Meanwhile, out deep in the forest, a group of school girls get very lost and things get very strange. And awful things happen in aspic.",
+                            ImageUrl = "\\images\\products\\59594d61-7535-4f36-bcca-2998757c9868.jpg",
+                            Price = 22,
+                            Quantity = 32,
+                            Title = "Girls Against God"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Author = "BARACK OBAMA",
+                            CategoryId = 2,
+                            Description = "A riveting, deeply personal account of history in the making&mdash;from the president who inspired us to believe in the power of democracy. In the stirring, highly anticipated first volume of his presidential memoirs, Barack Obama tells the story of his improbable odyssey from young man searching for his identity to leader of the free world, describing in strikingly personal detail both his political education and the landmark moments of the first term of his historic presidency & mdash; a time of dramatic transformation and turmoil.",
+                            ImageUrl = "\\images\\products\\98c7dcef-5876-43d1-9871-b60f56fc4265.jpg",
+                            Price = 55,
+                            Quantity = 60,
+                            Title = "Promised Land"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Author = "JULIA ZARANKIN",
+                            CategoryId = 1,
+                            Description = "When Julia Zarankin saw her first red-winged blackbird at the age of thirty-five, she didn&rsquo;t expect that it would change her life. Recently divorced and auditioning hobbies during a stressful career transition, she stumbled on birdwatching, initially out of curiosity for the strange breed of humans who wear multi-pocketed vests, carry spotting scopes and discuss the finer points of optics with disturbing fervour. What she never could have predicted was that she would become one of them. Not only would she come to identify proudly as a birder, but birding would ultimately lead her to find love, uncover a new language and lay down her roots.",
+                            ImageUrl = "\\images\\products\\1827a268-16ce-4fb2-804a-04432f579137.jpg",
+                            Price = 35,
+                            Quantity = 60,
+                            Title = "Field Notes"
+                        });
                 });
 
             modelBuilder.Entity("AptechStore.Models.ShoppingCart", b =>
@@ -334,10 +391,12 @@ namespace AptechStore.DataAccess.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(128)")
+                        .HasMaxLength(128);
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(128)")
+                        .HasMaxLength(128);
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -374,10 +433,12 @@ namespace AptechStore.DataAccess.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(128)")
+                        .HasMaxLength(128);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(128)")
+                        .HasMaxLength(128);
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
