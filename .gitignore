@@ -342,8 +342,6 @@ healthchecksdb
 # Images
 # **/wwwroot/images
 
-AptechStore.Utility/
-
 AptechStore/bin/
 
 AptechStore/obj/
