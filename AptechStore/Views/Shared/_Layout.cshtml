@@ -5,19 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - AptechStore</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/jquery-ui.min.css" />
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/toastr.min.css" />
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/fonts/fonts.css" />
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/icons/icomoon/styles.css" />
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/icons/fontawesome/fontawesome-all.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/colors.css" />
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/DateTimePicker.css" />
-
-    @* CDN *@
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 </head>
 <body>
     <header>
@@ -44,7 +35,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="Admin" asp-controller="Home" asp-action="Index">User</a>
+                            <a class="nav-link" asp-area="Admin" asp-controller="User" asp-action="Index">User</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="Admin" asp-controller="Order" asp-action="Index">Orders History</a>
@@ -74,39 +65,79 @@
             @RenderBody()
         </main>
     </div>
+    <div class="py-4 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <h4 style="font-weight:bold">VỀ CHÚNG TÔI</h4>
+                    <hr />
+                    <ul style="display:block;list-style:none;padding-left:0px;">
+                        <li class="py-1"><a href="" class="text-muted">Giới Thiệu Về Nhà Sách</a></li>
+                        <li class="py-1"><a href="" class="text-muted">Hệ Thống Nhà Sách</a></li>
+                        <li class="py-1"><a href="" class="text-muted">Điều Khoản Sử Dụng</a></li>
+                        <li class="py-1"><a href="" class="text-muted">Chính Sách Bảo Mật</a></li>
+                        <li class="py-1"><a href="" class="text-muted">Chính Sách Bán Hàng</a></li>
+                    </ul>
+                </div>
+                <div class="col-3">
+                    <h4 style="font-weight:bold">TÀI KHOẢN CỦA BẠN</h4>
+                    <hr />
+                    <ul style="display:block;list-style:none;padding-left:0px;">
+                        <li class="py-1"><a href="" class="text-muted">Đăng nhập</a></li>
+                        <li class="py-1"><a href="" class="text-muted">Tạo tài khoản</a></li>
+                        <li class="py-1"><a href="" class="text-muted">Danh Sách Yêu Thích</a></li>
+                        <li class="py-1"><a href="" class="text-muted">Danh Sách So Sánh</a></li>
+                    </ul>
+                </div>
+                <div class="col-3">
+                    <h4 style="font-weight:bold">HỖ TRỢ KHÁCH HÀNG</h4>
+                    <hr />
+                    <ul style="display:block;list-style:none;padding-left:0px;">
+                        <li class="py-1"><a href="" class="text-muted">Các Câu Hỏi Thường Gặp</a></li>
+                        <li class="py-1"><a href="" class="text-muted">Chính Sách Đổi/Trả Hàng</a></li>
+                        <li class="py-1"><a href="" class="text-muted">Quy Định Viết Bình Luận</a></li>
+                    </ul>
+                </div>
+                <div class="col-3">
+                    <h4 style="font-weight:bold">LIÊN HỆ</h4>
+                    <hr />
+                    <ul style="display:block;list-style:none;padding-left:0px;">
+                        <li class="py-1"><a href="" class="text-muted">Hotline: 1900 6656</a></li>
+                        <li class="py-1"><a href="" class="text-muted">Email:hotro@nhasachphuongnam.com</a></li>
+                        <li class="py-1">
+                            <a href="https://www.facebook.com/nhasachphuongnam" class="facebook" target="_blank"><i class="fab fa-facebook-square" style="font-size:30px"></i></a>
+                            <a href="https://www.youtube.com/channel/UCfKPeM9cAbB5LxKSeth8Vjg" class="youtube" target="_blank"><i class="fab fa-youtube" style="font-size:30px"></i></a>
+                            <a href="https://www.instagram.com/nhasachphuongnam.official/" class="vimeo" target="_blank"><i class="fab fa-instagram-square" style="font-size:30px"></i></a>
+                            <a href="https://www.linkedin.com/company/cong-ty-co-phan-van-hoa-phuong-nam/" class="linkedin" target="_blank"><i class="fab fa-linkedin" style="font-size:30px"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
+    </div>
     <footer class="border-top footer text-white-50 bg-primary">
         <div class="container">
-            &copy; 2021 - AptechStore
+            &copy; 2020 - BulkyBook
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
-    @* Datatable resoures *@
-    <script src="~/lib/bootstrap/dist/js/plugins/tables/datatables/datatables.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/plugins/tables/datatables/extensions/buttons.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/plugins/tables/datatables/extensions/jszip/jszip.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/plugins/tables/datatables/extensions/select.min.js"></script>
-
-    @* Theme JS files *@
-    <script src="~/lib/bootstrap/dist/js/plugins/forms/selects/select2.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/plugins/notifications/sweet_alert.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/plugins/notifications/pnotify.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/plugins/notifications/toastr.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/plugins/forms/styling/uniform.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/plugins/ui/nicescroll.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/DateTimePicker.js"></script>
-    <script src="~/lib/bootstrap/dist/js/jquery.validate.js"></script>
-
-    @* CDN *@
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://kit.fontawesome.com/e19c476714.js"></script>
 
     @RenderSection("Scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            $("#postTitle").autocomplete({
+                source: 'api/postapi/search'
+            });
+        });
+    </script>
 </body>
 </html>
