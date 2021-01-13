@@ -23,7 +23,6 @@ namespace AptechStore.DataAccess.Repositoty
             if (objFromDb != null)
             {
                 objFromDb.Name = category.Name;
-                _db.SaveChanges();
             }
         }
     }
