@@ -49,7 +49,11 @@ namespace AptechStore
                 options.LogoutPath = $"/Identity/Account/Logout";
                 options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
             });
-            
+            services.AddAuthentication().AddFacebook(options =>
+            {
+                options.AppId = "516322252109893";
+                options.AppSecret = "aace787423e0dbc22f71eefd7967312a";
+            });
 
             services.AddSession(options =>
             {
