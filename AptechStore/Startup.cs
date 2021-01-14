@@ -1,4 +1,5 @@
 using AptechStore.DataAccess.Data;
+using AptechStore.DataAccess.Initializer;
 using AptechStore.DataAccess.Repositoty.IRepository;
 using AptechStore.Utility;
 using CloudStudio.DataAccess.Repositoty;
@@ -40,7 +41,7 @@ namespace AptechStore
             services.AddSingleton<IEmailSender, EmailSender>();
             services.AddSingleton<ITempDataProvider, CookieTempDataProvider>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-
+            services.AddScoped<IDbInitializer, DbInitializer>();
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.ConfigureApplicationCookie(options =>
@@ -68,7 +69,7 @@ namespace AptechStore
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IDbInitializer dbInitializer)
         {
             if (env.IsDevelopment())
             {
@@ -88,7 +89,7 @@ namespace AptechStore
 
             app.UseAuthentication();
             app.UseAuthorization();
-
+            dbInitializer.Initializer();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
