@@ -203,44 +203,45 @@ namespace AptechStore.Areas.Customer.Controllers
             _unitOfWork.Save();
             HttpContext.Session.SetInt32(SD.ssShoppingCart, 0);
 
-            if (stripeToken == null)
-            {
-                //order will be created for delayed payment for authroized company
-                ShoppingCartVM.OrderHeader.PaymentStatus = SD.PaymentStatusDelayedPayment;
-                ShoppingCartVM.OrderHeader.OrderStatus = SD.StatusApproved;
-            }
-            else
-            {
-                //process the payment
-                var options = new ChargeCreateOptions
-                {
-                    Amount = Convert.ToInt32(ShoppingCartVM.OrderHeader.OrderTotal * 100),
-                    Currency = "usd",
-                    Description = "Order ID : " + ShoppingCartVM.OrderHeader.Id,
-                    Source = stripeToken
-                };
+            //if (stripeToken == null)
+            //{
+            //    //order will be created for delayed payment for authroized company
+            //    ShoppingCartVM.OrderHeader.PaymentStatus = SD.PaymentStatusDelayedPayment;
+            //    ShoppingCartVM.OrderHeader.OrderStatus = SD.StatusApproved;
+            //}
+            //else
+            //{
+            //    //process the payment
+            //    var options = new ChargeCreateOptions
+            //    {
+            //        Amount = Convert.ToInt32(ShoppingCartVM.OrderHeader.OrderTotal * 100),
+            //        Currency = "usd",
+            //        Description = "Order ID : " + ShoppingCartVM.OrderHeader.Id,
+            //        Source = stripeToken
+            //    };
 
-                var service = new ChargeService();
-                Charge charge = service.Create(options);
+            //    var service = new ChargeService();
+            //    Charge charge = service.Create(options);
 
-                if (charge.Id == null)
-                {
-                    ShoppingCartVM.OrderHeader.PaymentStatus = SD.PaymentStatusRejected;
-                }
-                else
-                {
-                    ShoppingCartVM.OrderHeader.TransactionId = charge.Id;
-                }
-                if (charge.Status.ToLower() == "succeeded")
-                {
-                    ShoppingCartVM.OrderHeader.PaymentStatus = SD.PaymentStatusApproved;
-                    ShoppingCartVM.OrderHeader.OrderStatus = SD.StatusApproved;
-                    ShoppingCartVM.OrderHeader.PaymentDate = DateTime.Now;
-                }
-            }
+            //    if (charge.Id == null)
+            //    {
+            //        ShoppingCartVM.OrderHeader.PaymentStatus = SD.PaymentStatusRejected;
+            //    }
+            //    else
+            //    {
+            //        ShoppingCartVM.OrderHeader.TransactionId = charge.Id;
+            //    }
+            //    if (charge.Status.ToLower() == "succeeded")
+            //    {
+            //        ShoppingCartVM.OrderHeader.PaymentStatus = SD.PaymentStatusApproved;
+            //        ShoppingCartVM.OrderHeader.OrderStatus = SD.StatusApproved;
+            //        ShoppingCartVM.OrderHeader.PaymentDate = DateTime.Now;
+            //    }
+            //}
 
-            _unitOfWork.Save();
+            //_unitOfWork.Save();
 
+            //return RedirectToAction("OrderConfirmation", "Cart", new { id = ShoppingCartVM.OrderHeader.Id });
             return RedirectToAction("OrderConfirmation", "Cart", new { id = ShoppingCartVM.OrderHeader.Id });
 
         }
