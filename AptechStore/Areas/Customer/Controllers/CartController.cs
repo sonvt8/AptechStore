@@ -47,6 +47,7 @@ namespace AptechStore.Areas.Customer.Controllers
                 ListCart = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == claim.Value, includeProperties: "Product")
             };
             ShoppingCartVM.OrderHeader.OrderTotal = 0;
+            ShoppingCartVM.OrderHeader.ApplicationUser = _unitOfWork.ApplicationUser.GetFirstOrDefault(u => u.Id == claim.Value);
 
             foreach (var list in ShoppingCartVM.ListCart)
             {
@@ -62,43 +63,43 @@ namespace AptechStore.Areas.Customer.Controllers
             return View(ShoppingCartVM);
         }
 
-        [HttpPost]
-        [ActionName("Index")]
-        public async Task<IActionResult> IndexPOST()
-        {
-            var claimsIdentity = (ClaimsIdentity)User.Identity;
-            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-            var user = _unitOfWork.ApplicationUser.GetFirstOrDefault(u => u.Id == claim.Value);
+        //[HttpPost]
+        //[ActionName("Index")]
+        //public async Task<IActionResult> IndexPOST()
+        //{
+        //    var claimsIdentity = (ClaimsIdentity)User.Identity;
+        //    var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+        //    var user = _unitOfWork.ApplicationUser.GetFirstOrDefault(u => u.Id == claim.Value);
 
-            if (user == null)
-            {
-                ModelState.AddModelError(string.Empty, "Verification email is empty!");
-            }
+        //    if (user == null)
+        //    {
+        //        ModelState.AddModelError(string.Empty, "Verification email is empty!");
+        //    }
 
-            var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-            code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-            var callbackUrl = Url.Page(
-                "/Account/ConfirmEmail",
-                pageHandler: null,
-                values: new { area = "Identity", userId = user.Id, code = code },
-                protocol: Request.Scheme);
+        //    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+        //    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+        //    var callbackUrl = Url.Page(
+        //        "/Account/ConfirmEmail",
+        //        pageHandler: null,
+        //        values: new { area = "Identity", userId = user.Id, code = code },
+        //        protocol: Request.Scheme);
 
-            await _emailSender.SendEmailAsync(user.Email, "Confirm your email",
-                $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+        //    await _emailSender.SendEmailAsync(user.Email, "Confirm your email",
+        //        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
-            ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email.");
-            return RedirectToAction("Index");
-        }
+        //    ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email.");
+        //    return RedirectToAction("Index");
+        //}
 
-        public IActionResult Plus(int cartId)
-        {
-            var cart = _unitOfWork.ShoppingCart.GetFirstOrDefault
-                            (c => c.Id == cartId, includeProperties: "Product");
-            cart.Count += 1;
-            cart.Price = cart.Product.Price;
-            _unitOfWork.Save();
-            return RedirectToAction(nameof(Index));
-        }
+        //public IActionResult Plus(int cartId)
+        //{
+        //    var cart = _unitOfWork.ShoppingCart.GetFirstOrDefault
+        //                    (c => c.Id == cartId, includeProperties: "Product");
+        //    cart.Count += 1;
+        //    cart.Price = cart.Product.Price;
+        //    _unitOfWork.Save();
+        //    return RedirectToAction(nameof(Index));
+        //}
 
         public IActionResult Minus(int cartId)
         {
@@ -147,7 +148,8 @@ namespace AptechStore.Areas.Customer.Controllers
                 ListCart = _unitOfWork.ShoppingCart.GetAll(c => c.ApplicationUserId == claim.Value,
                                                             includeProperties: "Product")
             };
-
+            ShoppingCartVM.OrderHeader.ApplicationUser = _unitOfWork.ApplicationUser
+                                                            .GetFirstOrDefault(c => c.Id == claim.Value);
             foreach (var list in ShoppingCartVM.ListCart)
             {
                 list.Price = list.Product.Price;
@@ -242,24 +244,9 @@ namespace AptechStore.Areas.Customer.Controllers
             return RedirectToAction("OrderConfirmation", "Cart", new { id = ShoppingCartVM.OrderHeader.Id });
 
         }
-        //public IActionResult OrderConfirmation(int id)
-        //{
-        //    OrderHeader orderHeader = _unitOfWork.OrderHeader.GetFirstOrDefault(u => u.Id == id);
-        //    TwilioClient.Init(_twilioOptions.AccountSid, _twilioOptions.AuthToken);
-        //    try
-        //    {
-        //        var message = MessageResource.Create(
-        //            body: "Order Placed on Bulky Book. Your Order ID:" + id,
-        //            from: new Twilio.Types.PhoneNumber(_twilioOptions.PhoneNumber),
-        //            to: new Twilio.Types.PhoneNumber(orderHeader.PhoneNumber)
-        //            );
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine(ex.Message);
-        //    }
-
-        //    return View(id);
-        //}
+        public IActionResult OrderConfirmation(int id)
+        {
+            return View(id);
+        }
     }
 }
