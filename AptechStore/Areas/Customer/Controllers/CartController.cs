@@ -47,11 +47,10 @@ namespace AptechStore.Areas.Customer.Controllers
                 ListCart = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == claim.Value, includeProperties: "Product")
             };
             ShoppingCartVM.OrderHeader.OrderTotal = 0;
-            ShoppingCartVM.OrderHeader.ApplicationUser = _unitOfWork.ApplicationUser.GetFirstOrDefault(u => u.Id == claim.Value, includeProperties: "Company");
 
             foreach (var list in ShoppingCartVM.ListCart)
             {
-                //list.Price = SD.GetPriceBaseOnQuantity(list.Count, list.Product.Price, list.Product.Price50, list.Product.Price100);
+                list.Price = list.Product.Price;
                 ShoppingCartVM.OrderHeader.OrderTotal += (list.Price * list.Count);
                 list.Product.Description = SD.ConvertToRawHtml(list.Product.Description);
                 if (list.Product.Description.Length > 100)
@@ -63,33 +62,33 @@ namespace AptechStore.Areas.Customer.Controllers
             return View(ShoppingCartVM);
         }
 
-        //[HttpPost]
-        //[ActionName("Index")]
-        //public async Task<IActionResult> IndexPOST()
-        //{
-        //    var claimsIdentity = (ClaimsIdentity)User.Identity;
-        //    var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-        //    var user = _unitOfWork.ApplicationUser.GetFirstOrDefault(u => u.Id == claim.Value);
+        [HttpPost]
+        [ActionName("Index")]
+        public async Task<IActionResult> IndexPOST()
+        {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            var user = _unitOfWork.ApplicationUser.GetFirstOrDefault(u => u.Id == claim.Value);
 
-        //    if (user == null)
-        //    {
-        //        ModelState.AddModelError(string.Empty, "Verification email is empty!");
-        //    }
+            if (user == null)
+            {
+                ModelState.AddModelError(string.Empty, "Verification email is empty!");
+            }
 
-        //    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-        //    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-        //    var callbackUrl = Url.Page(
-        //        "/Account/ConfirmEmail",
-        //        pageHandler: null,
-        //        values: new { area = "Identity", userId = user.Id, code = code },
-        //        protocol: Request.Scheme);
+            var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+            var callbackUrl = Url.Page(
+                "/Account/ConfirmEmail",
+                pageHandler: null,
+                values: new { area = "Identity", userId = user.Id, code = code },
+                protocol: Request.Scheme);
 
-        //    await _emailSender.SendEmailAsync(user.Email, "Confirm your email",
-        //        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+            await _emailSender.SendEmailAsync(user.Email, "Confirm your email",
+                $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
-        //    ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email.");
-        //    return RedirectToAction("Index");
-        //}
+            ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email.");
+            return RedirectToAction("Index");
+        }
 
         //public IActionResult Plus(int cartId)
         //{
