@@ -90,78 +90,78 @@ namespace AptechStore.Areas.Customer.Controllers
             return RedirectToAction("Index");
         }
 
-        //public IActionResult Plus(int cartId)
-        //{
-        //    var cart = _unitOfWork.ShoppingCart.GetFirstOrDefault
-        //                    (c => c.Id == cartId, includeProperties: "Product");
-        //    cart.Count += 1;
-        //    cart.Price = cart.Product.Price;
-        //    _unitOfWork.Save();
-        //    return RedirectToAction(nameof(Index));
-        //}
+        public IActionResult Plus(int cartId)
+        {
+            var cart = _unitOfWork.ShoppingCart.GetFirstOrDefault
+                            (c => c.Id == cartId, includeProperties: "Product");
+            cart.Count += 1;
+            cart.Price = cart.Product.Price;
+            _unitOfWork.Save();
+            return RedirectToAction(nameof(Index));
+        }
 
-        //public IActionResult Minus(int cartId)
-        //{
-        //    var cart = _unitOfWork.ShoppingCart.GetFirstOrDefault
-        //                    (c => c.Id == cartId, includeProperties: "Product");
+        public IActionResult Minus(int cartId)
+        {
+            var cart = _unitOfWork.ShoppingCart.GetFirstOrDefault
+                            (c => c.Id == cartId, includeProperties: "Product");
 
-        //    if (cart.Count == 1)
-        //    {
-        //        var cnt = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == cart.ApplicationUserId).ToList().Count;
-        //        _unitOfWork.ShoppingCart.Remove(cart.Id);
-        //        _unitOfWork.Save();
-        //        HttpContext.Session.SetInt32(SD.ssShoppingCart, cnt - 1);
-        //    }
-        //    else
-        //    {
-        //        cart.Count -= 1;
-        //        cart.Price = cart.Product.Price;
-        //        _unitOfWork.Save();
-        //    }
+            if (cart.Count == 1)
+            {
+                var cnt = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == cart.ApplicationUserId).ToList().Count;
+                _unitOfWork.ShoppingCart.Remove(cart.Id);
+                _unitOfWork.Save();
+                HttpContext.Session.SetInt32(SD.ssShoppingCart, cnt - 1);
+            }
+            else
+            {
+                cart.Count -= 1;
+                cart.Price = cart.Product.Price;
+                _unitOfWork.Save();
+            }
 
-        //    return RedirectToAction(nameof(Index));
-        //}
+            return RedirectToAction(nameof(Index));
+        }
 
-        //public IActionResult Remove(int cartId)
-        //{
-        //    var cart = _unitOfWork.ShoppingCart.GetFirstOrDefault
-        //                    (c => c.Id == cartId, includeProperties: "Product");
+        public IActionResult Remove(int cartId)
+        {
+            var cart = _unitOfWork.ShoppingCart.GetFirstOrDefault
+                            (c => c.Id == cartId, includeProperties: "Product");
 
-        //    var cnt = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == cart.ApplicationUserId).ToList().Count;
-        //    _unitOfWork.ShoppingCart.Remove(cart.Id);
-        //    _unitOfWork.Save();
-        //    HttpContext.Session.SetInt32(SD.ssShoppingCart, cnt - 1);
+            var cnt = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == cart.ApplicationUserId).ToList().Count;
+            _unitOfWork.ShoppingCart.Remove(cart.Id);
+            _unitOfWork.Save();
+            HttpContext.Session.SetInt32(SD.ssShoppingCart, cnt - 1);
 
 
-        //    return RedirectToAction(nameof(Index));
-        //}
+            return RedirectToAction(nameof(Index));
+        }
 
-        //public IActionResult Summary()
-        //{
-        //    var claimsIdentity = (ClaimsIdentity)User.Identity;
-        //    var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+        public IActionResult Summary()
+        {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
-        //    ShoppingCartVM = new ShoppingCartVM()
-        //    {
-        //        OrderHeader = new Models.OrderHeader(),
-        //        ListCart = _unitOfWork.ShoppingCart.GetAll(c => c.ApplicationUserId == claim.Value,
-        //                                                    includeProperties: "Product")
-        //    };
+            ShoppingCartVM = new ShoppingCartVM()
+            {
+                OrderHeader = new Models.OrderHeader(),
+                ListCart = _unitOfWork.ShoppingCart.GetAll(c => c.ApplicationUserId == claim.Value,
+                                                            includeProperties: "Product")
+            };
 
-        //    foreach (var list in ShoppingCartVM.ListCart)
-        //    {
-        //        list.Price = list.Product.Price;
-        //        ShoppingCartVM.OrderHeader.OrderTotal += (list.Price * list.Count);
-        //    }
-        //    ShoppingCartVM.OrderHeader.Name = ShoppingCartVM.OrderHeader.ApplicationUser.Name;
-        //    ShoppingCartVM.OrderHeader.PhoneNumber = ShoppingCartVM.OrderHeader.ApplicationUser.PhoneNumber;
-        //    ShoppingCartVM.OrderHeader.StreetAddress = ShoppingCartVM.OrderHeader.ApplicationUser.StreetAddress;
-        //    ShoppingCartVM.OrderHeader.City = ShoppingCartVM.OrderHeader.ApplicationUser.City;
-        //    ShoppingCartVM.OrderHeader.District = ShoppingCartVM.OrderHeader.ApplicationUser.District;
-        //    ShoppingCartVM.OrderHeader.Ward = ShoppingCartVM.OrderHeader.ApplicationUser.Ward;
+            foreach (var list in ShoppingCartVM.ListCart)
+            {
+                list.Price = list.Product.Price;
+                ShoppingCartVM.OrderHeader.OrderTotal += (list.Price * list.Count);
+            }
+            ShoppingCartVM.OrderHeader.Name = ShoppingCartVM.OrderHeader.ApplicationUser.Name;
+            ShoppingCartVM.OrderHeader.PhoneNumber = ShoppingCartVM.OrderHeader.ApplicationUser.PhoneNumber;
+            ShoppingCartVM.OrderHeader.StreetAddress = ShoppingCartVM.OrderHeader.ApplicationUser.StreetAddress;
+            ShoppingCartVM.OrderHeader.City = ShoppingCartVM.OrderHeader.ApplicationUser.City;
+            ShoppingCartVM.OrderHeader.District = ShoppingCartVM.OrderHeader.ApplicationUser.District;
+            ShoppingCartVM.OrderHeader.Ward = ShoppingCartVM.OrderHeader.ApplicationUser.Ward;
 
-        //    return View(ShoppingCartVM);
-        //}
+            return View(ShoppingCartVM);
+        }
 
         //[HttpPost]
         //[ActionName("Summary")]
