@@ -25,7 +25,7 @@ namespace AptechStore.Utility
         private Task Execute(string sendGridKey, string subject, string message, string email)
         {
             var client = new SendGridClient(sendGridKey);
-            var from = new EmailAddress("Thaison.millionaire@gmail.com", "Bulky Books");
+            var from = new EmailAddress("Thaison.millionaire@gmail.com", "Aptech Books");
             var to = new EmailAddress(email, "End User");
             var msg = MailHelper.CreateSingleEmail(from, to, subject, "", message);
             return client.SendEmailAsync(msg);
