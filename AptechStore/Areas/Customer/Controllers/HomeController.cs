@@ -90,7 +90,19 @@ namespace AptechStore.Areas.Customer.Controllers
                     );
                 if (cartFromDb == null)
                 {
-
+                    var productFromDb = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == CartObject.ProductId, includeProperties: "Category");
+                    if (CartObject.Count > productFromDb.Quantity)
+                    {
+                        TempData["msg"] = "<script>alert('excess inventory');</script>";
+                        //return RedirectToAction(nameof(Details));
+                        
+                        ShoppingCart cartObj = new ShoppingCart()
+                        {
+                            Product = productFromDb,
+                            ProductId = productFromDb.Id
+                        };
+                        return View(cartObj);
+                    }
                     //no records exists in database for that product for that user
                     _unitOfWork.ShoppingCart.Add(CartObject);
                 }
