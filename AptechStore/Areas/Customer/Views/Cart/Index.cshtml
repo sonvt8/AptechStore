@@ -34,11 +34,25 @@
                                         <h6><strong>$@item.Price<span class="text-muted">x</span> @item.Count </strong></h6>
                                     </div>
                                     <div class="col-6 col-sm-4 col-lg-6">
-                                        <div class="float-right mx-1">
-                                            <a asp-action="plus" asp-route-cartId="@item.Id" class="btn btn-primary">
-                                                <i class="fas fa-plus"></i>
-                                            </a>
-                                        </div>
+                                        @{
+                                            if (item.Count >= item.Product.Quantity)
+                                            {
+                                                <div class="float-right mx-1">
+                                                    <a asp-action="plus" asp-route-cartId="@item.Id" class="btn btn-primary disabled">
+                                                        <i class="fas fa-plus"></i>
+                                                    </a>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="float-right mx-1">
+                                                    <a asp-action="plus" asp-route-cartId="@item.Id" class="btn btn-primary">
+                                                        <i class="fas fa-plus"></i>
+                                                    </a>
+                                                </div>
+                                            }
+                                        }
+
                                         <div class="float-right mx-1">
                                             <a asp-action="minus" asp-route-cartId="@item.Id" class="btn btn-danger">
                                                 <i class="fas fa-minus"></i>

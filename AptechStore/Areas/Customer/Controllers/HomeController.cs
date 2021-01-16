@@ -90,12 +90,17 @@ namespace AptechStore.Areas.Customer.Controllers
                     );
                 if (cartFromDb == null)
                 {
+
                     //no records exists in database for that product for that user
                     _unitOfWork.ShoppingCart.Add(CartObject);
                 }
                 else
                 {
                     cartFromDb.Count += CartObject.Count;
+                    if (cartFromDb.Count >= cartFromDb.Product.Quantity)
+                    {
+                        return RedirectToAction(nameof(Index));
+                    }
                     //_unitOfwork.ShoppingCart.Update(cartFromDb);
                 }
                 _unitOfWork.Save();

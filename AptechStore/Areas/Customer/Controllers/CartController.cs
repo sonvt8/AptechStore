@@ -95,6 +95,7 @@ namespace AptechStore.Areas.Customer.Controllers
         {
             var cart = _unitOfWork.ShoppingCart.GetFirstOrDefault
                             (c => c.Id == cartId, includeProperties: "Product");
+
             cart.Count += 1;
             cart.Price = cart.Product.Price;
             _unitOfWork.Save();
