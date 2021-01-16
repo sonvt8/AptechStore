@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AptechStore.DataAccess.Migrations
 {
-    public partial class InitialDB : Migration
+    public partial class initDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -111,8 +111,8 @@ namespace AptechStore.DataAccess.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
-                    ProviderKey = table.Column<string>(maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(nullable: false),
+                    ProviderKey = table.Column<string>(nullable: false),
                     ProviderDisplayName = table.Column<string>(nullable: true),
                     UserId = table.Column<string>(nullable: false)
                 },
@@ -156,8 +156,8 @@ namespace AptechStore.DataAccess.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
-                    LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
-                    Name = table.Column<string>(maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: false),
                     Value = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -281,33 +281,6 @@ namespace AptechStore.DataAccess.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.InsertData(
-                table: "Categories",
-                columns: new[] { "Id", "Name" },
-                values: new object[,]
-                {
-                    { 1, "Film" },
-                    { 2, "Fiction" },
-                    { 3, "Nature" },
-                    { 4, "Memoir" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Products",
-                columns: new[] { "Id", "Author", "CategoryId", "Description", "ImageUrl", "Price", "Quantity", "Title" },
-                values: new object[] { 1, "JENNY HVAL", 1, "Welcome to 1990s Norway. White picket fences run in neat rows and Christian conservatism runs deep. But as the Artist considers her work, things start stirring themselves up. In a corner of Oslo a coven of witches begin cooking up some curses. A time-travelling Edvard Munch arrives in town to join a death metal band, closely pursued by the teenaged subject of his painting Puberty, who has murder on her mind. Meanwhile, out deep in the forest, a group of school girls get very lost and things get very strange. And awful things happen in aspic.", "\\images\\products\\59594d61-7535-4f36-bcca-2998757c9868.jpg", 22, 32, "Girls Against God" });
-
-            migrationBuilder.InsertData(
-                table: "Products",
-                columns: new[] { "Id", "Author", "CategoryId", "Description", "ImageUrl", "Price", "Quantity", "Title" },
-                values: new object[] { 3, "JULIA ZARANKIN", 1, "When Julia Zarankin saw her first red-winged blackbird at the age of thirty-five, she didn&rsquo;t expect that it would change her life. Recently divorced and auditioning hobbies during a stressful career transition, she stumbled on birdwatching, initially out of curiosity for the strange breed of humans who wear multi-pocketed vests, carry spotting scopes and discuss the finer points of optics with disturbing fervour. What she never could have predicted was that she would become one of them. Not only would she come to identify proudly as a birder, but birding would ultimately lead her to find love, uncover a new language and lay down her roots.", "\\images\\products\\1827a268-16ce-4fb2-804a-04432f579137.jpg", 35, 60, "Field Notes" });
-
-            migrationBuilder.InsertData(
-                table: "Products",
-                columns: new[] { "Id", "Author", "CategoryId", "Description", "ImageUrl", "Price", "Quantity", "Title" },
-                values: new object[] { 2, "BARACK OBAMA", 2, "A riveting, deeply personal account of history in the making&mdash;from the president who inspired us to believe in the power of democracy. In the stirring, highly anticipated first volume of his presidential memoirs, Barack Obama tells the story of his improbable odyssey from young man searching for his identity to leader of the free world, describing in strikingly personal detail both his political education and the landmark moments of the first term of his historic presidency & mdash; a time of dramatic transformation and turmoil.", "\\images\\products\\98c7dcef-5876-43d1-9871-b60f56fc4265.jpg", 55, 60, "Promised Land" });
-
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
