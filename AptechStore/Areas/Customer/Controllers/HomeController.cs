@@ -97,9 +97,17 @@ namespace AptechStore.Areas.Customer.Controllers
                 else
                 {
                     cartFromDb.Count += CartObject.Count;
-                    if (cartFromDb.Count >= cartFromDb.Product.Quantity)
+                    if (cartFromDb.Count > cartFromDb.Product.Quantity)
                     {
-                        return RedirectToAction(nameof(Index));
+                        TempData["msg"] = "<script>alert('excess inventory');</script>";
+                        //return RedirectToAction(nameof(Details));
+                        var productFromDb = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == CartObject.ProductId, includeProperties: "Category");
+                        ShoppingCart cartObj = new ShoppingCart()
+                        {
+                            Product = productFromDb,
+                            ProductId = productFromDb.Id
+                        };
+                        return View(cartObj);
                     }
                     //_unitOfwork.ShoppingCart.Update(cartFromDb);
                 }
@@ -114,7 +122,7 @@ namespace AptechStore.Areas.Customer.Controllers
             }
             else
             {
-                var productFromDb = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == CartObject.ProductId, includeProperties: "Category,CoverType");
+                var productFromDb = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == CartObject.ProductId, includeProperties: "Category");
                 ShoppingCart cartObj = new ShoppingCart()
                 {
                     Product = productFromDb,
