@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AptechStore.DataAccess.Repositoty.IRepository;
 using AptechStore.Models;
+using AptechStore.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
