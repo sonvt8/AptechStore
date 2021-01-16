@@ -2,6 +2,7 @@
 using AptechStore.Models;
 using AptechStore.Models.ViewModels;
 using AptechStore.Utility;
+using cloudscribe.Pagination.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -27,23 +28,41 @@ namespace AptechStore.Areas.Customer.Controllers
 			_unitOfWork = unitOfWork;
 		}
 
-		public IActionResult Index()
-		{
-			IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties:"Category");
+        public IActionResult Index(string postTitle, int pageNumber = 1, int pageSize = 4)
+        {
+            int ExcludeRecords = (pageSize * pageNumber) - pageSize;
+
+            IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties: "Category");
+            var bookCount = productList.Count();
+
+            if (!string.IsNullOrEmpty(postTitle))
+            {
+                productList = productList.Where(b => b.Title.Contains(postTitle));
+                bookCount = productList.Count();
+            }
+
+            productList = productList.Skip(ExcludeRecords).Take(pageSize);
+
+            var result = new PagedResult<Product>
+            {
+                Data = productList.ToList(),
+                TotalItems = bookCount,
+                PageNumber = pageNumber,
+                PageSize = pageSize
+            };
+
             var claimsIdentity = (ClaimsIdentity)User.Identity;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
             if (claim != null)
             {
-                var count = _unitOfWork.ShoppingCart
-                    .GetAll(c => c.ApplicationUserId == claim.Value)
-                    .ToList().Count();
+                var count = _unitOfWork.ShoppingCart.GetAll(c => c.ApplicationUserId == claim.Value).ToList().Count();
 
                 HttpContext.Session.SetInt32(SD.ssShoppingCart, count);
             }
-            return View(productList);
-		}
+            return View(result);
+        }
 
-		public IActionResult Details(int id)
+        public IActionResult Details(int id)
 		{
 			var productFromDb = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == id, includeProperties: "Category");
 			ShoppingCart cartObj = new ShoppingCart()
