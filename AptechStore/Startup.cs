@@ -1,4 +1,5 @@
 using AptechStore.DataAccess.Data;
+using AptechStore.DataAccess.Initializer;
 using AptechStore.DataAccess.Repositoty.IRepository;
 using AptechStore.Utility;
 using CloudStudio.DataAccess.Repositoty;
@@ -17,6 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Stripe;
 
 namespace AptechStore
 {
@@ -39,7 +41,12 @@ namespace AptechStore
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddSingleton<IEmailSender, EmailSender>();
             services.AddSingleton<ITempDataProvider, CookieTempDataProvider>();
+            services.Configure<EmailOptions>(Configuration);
+            services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IDbInitializer, DbInitializer>();
+
+            services.AddCloudscribePagination();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
@@ -49,8 +56,16 @@ namespace AptechStore
                 options.LogoutPath = $"/Identity/Account/Logout";
                 options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
             });
-            
-
+            services.AddAuthentication().AddFacebook(options =>
+            {
+                options.AppId = "516322252109893";
+                options.AppSecret = "aace787423e0dbc22f71eefd7967312a";
+            });
+            services.AddAuthentication().AddGoogle(options =>
+            {
+                options.ClientId = "639220658014-1hmnvq1d2g6cpgq9ojn4r595s7fa6p5a.apps.googleusercontent.com";
+                options.ClientSecret = "fq-6vX_is1I48YombA8qBAsl";
+            });
             services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromMinutes(30);
@@ -60,7 +75,7 @@ namespace AptechStore
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IDbInitializer dbInitializer)
         {
             if (env.IsDevelopment())
             {
@@ -77,10 +92,11 @@ namespace AptechStore
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            StripeConfiguration.ApiKey = Configuration.GetSection("Stripe")["SecretKey"];
+            app.UseSession();
             app.UseAuthentication();
             app.UseAuthorization();
-
+            dbInitializer.Initializer();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

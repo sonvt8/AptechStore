@@ -86,6 +86,16 @@ namespace AptechStore.Areas.Identity.Pages.Account
         public async Task OnGetAsync(string returnUrl = null)
         {
             ReturnUrl = returnUrl;
+            Input = new InputModel()
+            {
+                RoleList = _roleManager.Roles.Where(u => u.Name != SD.Role_User_Indi).Select(x => x.Name).Select(i => new SelectListItem
+                {
+                    Text = i,
+                    Value = i
+                })
+
+            };
+            
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
@@ -111,18 +121,6 @@ namespace AptechStore.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-                    if (!await _roleManager.RoleExistsAsync(SD.Role_Admin))
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole(SD.Role_Admin));
-                    }
-                    if (!await _roleManager.RoleExistsAsync(SD.Role_Employee))
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole(SD.Role_Employee));
-                    }
-                    if (!await _roleManager.RoleExistsAsync(SD.Role_User_Indi))
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole(SD.Role_User_Indi));
-                    }
                     if (user.Role == null)
                     {
                         await _userManager.AddToRoleAsync(user, SD.Role_User_Indi);
@@ -132,16 +130,16 @@ namespace AptechStore.Areas.Identity.Pages.Account
                         await _userManager.AddToRoleAsync(user, user.Role);
                     }
 
-                    //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    //code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-                    //var callbackUrl = Url.Page(
-                    //    "/Account/ConfirmEmail",
-                    //    pageHandler: null,
-                    //    values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
-                    //    protocol: Request.Scheme);
+                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                    var callbackUrl = Url.Page(
+                        "/Account/ConfirmEmail",
+                        pageHandler: null,
+                        values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
+                        protocol: Request.Scheme);
 
-                    //await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                    //    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
