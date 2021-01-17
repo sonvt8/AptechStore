@@ -340,7 +340,7 @@ ASALocalRun/
 healthchecksdb
 
 # Images
-# **/wwwroot/images
+**/wwwroot/images
 
 AptechStore/bin/
 
