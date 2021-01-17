@@ -58,8 +58,8 @@ namespace AptechStore
             });
             services.AddAuthentication().AddFacebook(options =>
             {
-                options.AppId = "516322252109893";
-                options.AppSecret = "aace787423e0dbc22f71eefd7967312a";
+                options.AppId = "827063804508932";
+                options.AppSecret = "a61fce570bc82fb21994adccb49f3a52";
             });
             services.AddAuthentication().AddGoogle(options =>
             {
