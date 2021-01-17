@@ -18,7 +18,17 @@
                         <div class="col-8 col-lg-8">
 
                             <div class="row pl-2">
-                                <h4>Stock : @Model.Product.Quantity</h4>
+                                <h4>Stock :
+                                    @if (Model.Product.Quantity == 0)
+                                    {
+                                        <span class="text-danger">Out of stock</span>
+                                    }
+                                    else
+                                    {
+                                        @Model.Product.Quantity;
+                                    }
+
+                                </h4>
                             </div>
                             <div class="row pl-2">
                                 <h4 class="pb-2">Price: @Model.Product.Price.ToString(".00") $</h4>
