@@ -63,8 +63,8 @@ namespace AptechStore
             });
             services.AddAuthentication().AddGoogle(options =>
             {
-                options.ClientId = "892994550648-klghjqlgfefjlmh1g16ik86fev21429p.apps.googleusercontent.com";
-                options.ClientSecret = "q0d2d51phXBVLltcc5DbPbML";
+                options.ClientId = "639220658014-1hmnvq1d2g6cpgq9ojn4r595s7fa6p5a.apps.googleusercontent.com";
+                options.ClientSecret = "fq-6vX_is1I48YombA8qBAsl";
             });
             services.AddSession(options =>
             {

@@ -197,6 +197,7 @@ namespace AptechStore.Areas.Customer.Controllers
                     Count = item.Count
                 };
                 ShoppingCartVM.OrderHeader.OrderTotal += orderDetails.Count * orderDetails.Price;
+                item.Product.Quantity = item.Product.Quantity - orderDetails.Count;
                 _unitOfWork.OrderDetails.Add(orderDetails);
             }
 
