@@ -30,8 +30,4 @@
     <ProjectReference Include="..\AptechStore.Utility\AptechStore.Utility.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\images\products\" />
-  </ItemGroup>
-
 </Project>
