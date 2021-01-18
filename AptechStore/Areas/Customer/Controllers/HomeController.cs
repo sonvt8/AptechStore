@@ -94,7 +94,7 @@ namespace AptechStore.Areas.Customer.Controllers
                     var productFromDb = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == CartObject.ProductId, includeProperties: "Category");
                     if (CartObject.Count > productFromDb.Quantity)
                     {
-                        TempData["msg"] = "<script>alert('excess inventory');</script>";
+                        TempData["msg"] = "Out of Stock";
                         
                         ShoppingCart cartObj = new ShoppingCart()
                         {
@@ -111,7 +111,7 @@ namespace AptechStore.Areas.Customer.Controllers
                     cartFromDb.Count += CartObject.Count;
                     if (cartFromDb.Count > cartFromDb.Product.Quantity)
                     {
-                        TempData["msg"] = "<script>alert('excess inventory');</script>";
+                        TempData["msg"] = "Out of Stock";
                         //return RedirectToAction(nameof(Details));
                         var productFromDb = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == CartObject.ProductId, includeProperties: "Category");
                         ShoppingCart cartObj = new ShoppingCart()
