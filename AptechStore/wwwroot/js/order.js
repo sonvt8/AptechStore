@@ -33,22 +33,10 @@ function loadDataTable(url) {
         },
         "columns": [
             { "data": "id", "width": "10%" },
-            { "data": "name", "width": "20%" },
-            { "data": "phoneNumber", "width": "20%" },
-            { "data": "applicationUser.email", "width": "20%" },
-            { "data": "orderTotal", "width": "15%" },
-            {
-                "data": "id",
-                "render": function (data) {
-                    return `
-                            <div class="text-center">
-                                <a href="/Admin/Order/Details/${data}" class="btn btn-success text-white" style="cursor:pointer">
-                                    <i class="fas fa-edit"></i> 
-                                </a>
-                            </div>
-                           `;
-                }, "width": "5%"
-            }
+            { "data": "name", "width": "25%" },
+            { "data": "phoneNumber", "width": "25%" },
+            { "data": "applicationUser.email", "width": "25%" },
+            { "data": "orderTotal", "width": "15%" }
         ]
     });
 }
