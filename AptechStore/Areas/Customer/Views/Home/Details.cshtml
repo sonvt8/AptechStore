@@ -82,7 +82,7 @@
                     $("#addToCart").replaceWith('<div value="Add to Cart" class="btn btn-primary btn-square btn-lg form-control disabled" style="height: 50px;" id="addToCart">Add to Cart</div>');
                     $("#countValidate").removeClass("d-none");
                     $("#countValidate").addClass("d-block");
-                    
+
                 }
                 else {
                     $("#addToCart").replaceWith('<button type="submit" value="Add to Cart" class="btn btn-primary btn-square btn-lg form-control" id="addToCart" style="height:50px;">Add to Cart</button>');
@@ -91,5 +91,11 @@
                 }
              })
         })
+        $(function(){
+             var msg = "@(TempData["msg"] as string)";
+             if (msg !== "") {
+                 toastr.error(msg);
+             }
+        });
     </script>
 }
